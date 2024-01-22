@@ -4,7 +4,7 @@ description: "Jan-March
 owner_name: Nighthawkcoders
 github_username: nighthawkcoders
 github_repo: "game_levels_mp"
-baseurl: "/game_levels_mp"
+baseurl: "/Personal-3"
 future: true
 remote_theme: jekyll/minima
 minima:
