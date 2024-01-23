@@ -2,7 +2,7 @@ import GameEnv from './GameEnv.js';
 import Character from './Character.js';
 import GameControl from './GameControl.js';
 
-const audio = new Audio('/game_levels_mp/audio/2024-01-21-MarioJump.mp3');
+const audio = new Audio('/Personal-3/audio/2024-01-21-MarioJump.mp3');
 
 /**
  * @class Player class
@@ -197,13 +197,19 @@ export class Player extends Character{
             if (this.collisionData.touchPoints.other.left) {
                 //Reset Player to Beginning
                 GameControl.transitionToLevel(GameEnv.levels[GameEnv.levels.indexOf(GameEnv.currentLevel)]);
+                // Play death sound
+                this.playDeathSound();
+            
             }
             // Collision with the right side of the Enemy
             if (this.collisionData.touchPoints.other.right) {
                 //Reset Player to Beginning
                 GameControl.transitionToLevel(GameEnv.levels[GameEnv.levels.indexOf(GameEnv.currentLevel)]);
+                // Play death sound
+                this.playDeathSound();
             }
         }
+        
         // Jump platform collision
         if (this.collisionData.touchPoints.other.id === "jumpPlatform") {
             // Player is on top of the Jump platform
@@ -266,8 +272,13 @@ export class Player extends Character{
 
     // Add a new helper method to play the jump sound
     playJumpSound() {
-    const audio = new Audio('/game_levels_mp/audio/2024-01-21-MarioJump.mp3');
+    const audio = new Audio('/Personal-3/audio/2024-01-21-MarioJump.mp3');
     audio.play();
+    }
+
+    playDeathSound() {
+        const deathAudio = new Audio('/Personal-3/audio/MarioDeath.mp3');
+        deathAudio.play();
     }
 
     /**
